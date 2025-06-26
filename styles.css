@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fondo completamente negro */
+body {
+  background: #000 !important;
+  font-family: 'Merriweather', serif !important;
+  color: #e50914 !important;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Eliminar cualquier pseudo-elemento de fondo */
+body::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Efecto de neblina animada */
+.fog {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  background: url('https://i.ibb.co/6bQ6Q8k/fog.png') repeat;
+  opacity: 0.18;
+  animation: fogMove 60s linear infinite;
+}
+@keyframes fogMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.st-header {
+  background: #111;
+  color: #fff;
+  border-bottom: 4px solid #e50914;
+  box-shadow: 0 4px 24px rgba(229,9,20,0.15);
+  position: relative;
+  z-index: 1;
+}
+.st-header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 1.5em;
+}
+.st-title {
+  font-family: 'Merriweather', serif !important;
+  font-size: 3rem;
+  color: #e50914 !important;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px #000, 0 0 10px #e50914;
+  margin-bottom: 0.2em;
+  margin-top: 0.5em;
+}
+.st-subtitle {
+  color: #fff;
+  font-family: 'Merriweather', serif !important;
+  font-size: 1.1rem;
+  margin-bottom: 0.5em;
+  text-shadow: 0 1px 6px #e50914cc;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.2rem;
+}
+nav a {
+  color: #fff;
+  font-family: 'Merriweather', serif !important;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  transition: color 0.2s, text-shadow 0.2s;
+  text-shadow: 0 1px 6px #e50914cc;
+}
+nav a:hover {
+  color: #e50914;
+  text-shadow: 0 0 12px #e50914, 0 0 6px #fff;
+}
+main {
+  flex: 1;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+.about-section, .tech-section, .projects-section {
+  margin-bottom: 2.5rem;
+  background: rgba(30, 30, 40, 0.92);
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(229,9,20,0.12);
+  padding: 2rem 1.5rem;
+  color: #e50914 !important;
+}
+.about-section h2, .tech-section h2, .projects-section h2 {
+  color: #e50914;
+  margin-bottom: 1rem;
+  font-family: 'Merriweather', serif !important;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 6px #000, 0 0 8px #e50914;
+}
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.tech-item {
+  background: #22223b;
+  color: #e50914;
+  padding: 0.7rem 1.2rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 1px 4px rgba(229,9,20,0.08);
+  border: 1.5px solid #e50914;
+}
+.footer {
+  background: linear-gradient(90deg, #4f46e5 0%, #a5b4fc 100%);
+  color: #fff;
+  padding: 1.5rem 0;
+  text-align: center;
+  position: relative;
+  margin-top: 2rem;
+}
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+}
+.footer .heart {
+  color: #f87171;
+  font-size: 1.2em;
+  animation: beat 1s infinite alternate;
+}
+@keyframes beat {
+  to { transform: scale(1.2); }
+}
+.footer-icons {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 1.2rem;
+}
+.icon {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.2s;
+}
+.icon:hover {
+  transform: scale(1.2) rotate(-8deg);
+  filter: drop-shadow(0 0 8px #e50914);
+}
+@media (max-width: 600px) {
+  .st-title { font-size: 2rem; }
+  .about-section, .tech-section, .projects-section { padding: 1.2rem 0.7rem; }
+  .tech-list { flex-direction: column; gap: 0.5rem; }
+}
+.avatar-asistente.grande {
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1em;
+  gap: 0.2em;
+}
+.avatar-img.grande {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid #e50914;
+  background: #fff;
+  object-fit: cover;
+  box-shadow: 0 4px 24px #e50914cc, 0 0 0 8px #111;
+  display: block;
+}
+.asistente-label.grande {
+  color: #fff;
+  font-family: 'Merriweather', serif !important;
+  font-size: 1.2rem;
+  background: #e50914;
+  padding: 0.4em 1.2em;
+  border-radius: 1.5em;
+  box-shadow: 0 2px 8px #e50914aa;
+  font-weight: 700;
+  margin-top: 0.5em;
+}
+
+/* Footer Stranger Things */
+.st-footer {
+  background: #111;
+  color: #fff;
+  border-top: 4px solid #e50914;
+  box-shadow: 0 -4px 24px rgba(229,9,20,0.15);
+  padding: 2rem 0 1.5rem 0;
+  text-align: center;
+  position: relative;
+  margin-top: 2rem;
+  z-index: 1;
+}
+.st-footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+.st-luces-navidad {
+  display: flex;
+  gap: 0.7rem;
+  margin-bottom: 0.7em;
+}
+.luz {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 12px #fff;
+  opacity: 0.7;
+  animation: parpadeo 1.2s infinite alternate;
+}
+.luz-roja { background: #e50914; animation-delay: 0s; }
+.luz-verde { background: #39ff14; animation-delay: 0.4s; }
+.luz-amarilla { background: #ffe066; animation-delay: 0.8s; }
+@keyframes parpadeo {
+  0% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+.st-footer-text {
+  font-family: 'Merriweather', serif !important;
+  font-size: 1.2rem;
+  color: #e50914;
+  text-shadow: 0 1px 6px #000, 0 0 8px #e50914;
+}
+.footer-icons {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 1.2rem;
+}
+.icon {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.2s;
+}
+.icon:hover {
+  transform: scale(1.2) rotate(-8deg);
+  filter: drop-shadow(0 0 8px #e50914);
+}
+
+/* Letras invertidas para efecto Upside Down */
+.upside-down {
+  display: inline-block;
+  transform: rotateX(180deg) scaleY(-1);
+  color: #e50914;
+  font-family: 'UnifrakturCook', 'Roboto', serif;
+  letter-spacing: 2px;
+  text-shadow: 0 1px 6px #000, 0 0 8px #e50914;
+  <div class="fog"></div>
+}
+
+h1, h2, h3, h4, h5, h6, p, nav a, .tech-item, .st-footer-text, .about-section, .tech-section, .projects-section {
+  font-family: 'Merriweather', serif !important;
+  color: #e50914 !important;
+  text-shadow: 0 1px 6px #000, 0 0 8px #e5091433;
+}
